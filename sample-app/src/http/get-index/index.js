@@ -17,6 +17,8 @@ async function getIndex () {
         } ],
         CommonAttributes: { Time: String(new Date().valueOf()), TimeUnit: 'MILLISECONDS' }
     }).promise();
+    let tsQuery = new aws.TimestreamQuery();
+    let queryResult = await tsQuery.query({ QueryString: 'SELECT * FROM "plugin-timestream-demo"."test-table"' }).promise();
     return {
         headers: {
             'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
@@ -36,7 +38,7 @@ async function getIndex () {
     <p>Timestream demo. Each time we hit this page, we add another record to timestream.</p>
     <h3>The list:</h3>
     <pre><code>
-    ${JSON.stringify(writeResult, null, 2)}
+    ${JSON.stringify(queryResult, null, 2)}
     </code></pre>
     </body>
     </html>`
