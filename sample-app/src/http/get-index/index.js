@@ -3,7 +3,7 @@ let aws = require('aws-sdk');
 
 async function getIndex () {
     let tsWrite = new aws.TimestreamWrite();
-    let writeResult = await tsWrite.writeRecords({
+    await tsWrite.writeRecords({
         DatabaseName: 'plugin-timestream-demo',
         TableName: 'test-table',
         Records: [ {

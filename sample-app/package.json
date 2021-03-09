@@ -11,5 +11,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Copper Inc.",
+  "eslintConfig": {
+    "extends": "@architect/eslint-config",
+    "rules": {
+      "import/no-unresolved": "off",
+      "brace-style": "off",
+      "indent": [
+        "error",
+        4
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  },
   "license": "ISC"
 }

@@ -29,7 +29,8 @@ module.exports = {
                 if (typeof tstrm === 'string') {
                     // just the table name is provided, nothing more
                     tableName = tstrm;
-                } else {
+                }
+                else {
                     // options passed to customize
                     tableName = Object.keys(tstrm)[0];
                     memoryRetention = tstrm[tableName].MemoryStoreRetentionPeriodInHours || memoryRetention;
