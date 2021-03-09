@@ -4,8 +4,7 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
-    "@architect/architect": "^8.5.0-RC.3",
-    "@copper/plugin-timestream": "^1.0.0"
+    "@architect/architect": "^8.5.0-RC.3"
   },
   "devDependencies": {},
   "scripts": {

@@ -11,5 +11,8 @@ fingerprint true
 data
   dateval *Number
 
+@timestream
+test-table
+
 @plugins
 copper/plugin-timestream

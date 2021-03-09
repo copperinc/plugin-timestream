@@ -1,9 +1,22 @@
 let arc = require('@architect/functions');
+let aws = require('aws-sdk');
 
 async function getIndex () {
-    let tables = await arc.tables();
-    let data = tables.data;
-    let items = await data.scan({});
+    let tsWrite = new aws.TimestreamWrite();
+    let writeResult = await tsWrite.writeRecords({
+        DatabaseName: 'plugin-timestream-demo',
+        TableName: 'test-table',
+        Records: [ {
+            MeasureName: 'temperature',
+            MeasureValue: '9',
+            MeasureValueType: 'DOUBLE',
+            Dimensions: [ {
+                Name: 'city',
+                Value: 'Toronto'
+            } ]
+        } ],
+        CommonAttributes: { Time: String(new Date().valueOf()), TimeUnit: 'MILLISECONDS' }
+    }).promise();
     return {
         headers: {
             'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
@@ -20,10 +33,10 @@ async function getIndex () {
     </head>
     <body>
     <h1>Hi there</h1>
-    <p>This page shows all connect and disconnect events. To fake these, you can publish to the <pre>$aws/events/presence/connected/clientId</pre> or <pre>$aws/events/presence/disconnected/clientId</pre> topics using the AWS CLI or the Test section of IoT Core inside the AWS Console.</p>
+    <p>Timestream demo. Each time we hit this page, we add another record to timestream.</p>
     <h3>The list:</h3>
     <pre><code>
-    ${JSON.stringify(items, null, 2)}
+    ${JSON.stringify(writeResult, null, 2)}
     </code></pre>
     </body>
     </html>`
