@@ -33,8 +33,8 @@ module.exports = {
                 else {
                     // options passed to customize
                     tableName = Object.keys(tstrm)[0];
-                    memoryRetention = tstrm[tableName].MemoryStoreRetentionPeriodInHours || memoryRetention;
-                    magneticRetention = tstrm[tableName].MagneticStoreRetentionPeriodInDays || magneticRetention;
+                    memoryRetention = String(tstrm[tableName].MemoryStoreRetentionPeriodInHours || memoryRetention);
+                    magneticRetention = String(tstrm[tableName].MagneticStoreRetentionPeriodInDays || magneticRetention);
                 }
                 let id = toLogicalID(tstrm);
                 cfn.Resources[id] = {
