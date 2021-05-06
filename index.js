@@ -36,7 +36,7 @@ module.exports = {
                     memoryRetention = String(tstrm[tableName].MemoryStoreRetentionPeriodInHours || memoryRetention);
                     magneticRetention = String(tstrm[tableName].MagneticStoreRetentionPeriodInDays || magneticRetention);
                 }
-                let id = toLogicalID(tstrm);
+                let id = toLogicalID(tableName);
                 cfn.Resources[id] = {
                     Type: 'AWS::Timestream::Table',
                     Properties: {
