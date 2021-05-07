@@ -1,6 +1,6 @@
 {
   "name": "@copper/plugin-timestream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Architect (arc.codes) serverless framework plugin that defines AWS Timestream databases and tables",
   "main": "index.js",
   "scripts": {
