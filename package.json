@@ -28,6 +28,7 @@
     "@architect/eslint-config": "^1.0.0",
     "@architect/inventory": "^1.3.0-RC.1",
     "eslint": "^7.19.0",
+    "fs-extra": "^10.0.0",
     "jasmine": "^3.6.4"
   },
   "dependencies": {
@@ -42,6 +43,7 @@
         "error",
         4
       ],
+      "no-magic-numbers": "off",
       "semi": [
         "error",
         "always"

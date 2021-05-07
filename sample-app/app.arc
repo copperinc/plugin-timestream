@@ -12,7 +12,10 @@ data
   dateval *Number
 
 @timestream
-test-table
+simple-table
+complex-table
+  MagneticStoreRetentionPeriodInDays 27
+  MemoryStoreRetentionPeriodInHours 42
 
 @plugins
 copper/plugin-timestream
